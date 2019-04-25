@@ -18,26 +18,26 @@ const CreatePolicies: React.FC = () => {
 
   const columns = [
     {
-      title: '权限效力',
+      title: 'name',
       dataIndex: 'name'
     },
     {
-      title: '模块',
+      title: 'type',
       dataIndex: 'type'
     },
     {
-      title: '操作名称',
+      title: 'attachmentCount',
       dataIndex: 'attachmentCount'
     },
     {
-      title: '资源',
+      title: 'remark',
       dataIndex: 'remark'
     },
     {
-      title: '操作',
+      title: '수술',
       key: 'action',
       render: (text, record) => (
-        <Tooltip placement="top" title="删除">
+        <Tooltip placement="top" title="삭제">
           <Button
             type="danger"
             size="small"
@@ -52,10 +52,10 @@ const CreatePolicies: React.FC = () => {
   return (
     <React.Fragment>
       <PageHeaderWrapper
-        title="新建自定义权限策略"
+        title="새 사용자 지정 권한 정책 만들기"
         extra={[
           <Button key="1" type="primary" onClick={showCreateView}>
-            添加授权语句
+            권한 추가
           </Button>
         ]}
       />
@@ -63,7 +63,7 @@ const CreatePolicies: React.FC = () => {
       <DrawerWrapper
         visible={visible}
         width={600}
-        title="添加授权语句"
+        title="권한 추가"
         onClose={closeCreateView}
       >
         13

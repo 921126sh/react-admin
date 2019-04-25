@@ -4,13 +4,13 @@ import { fetchList } from '@/services/permission';
 
 export interface IPermission {
   id?: string;
-  // 权限策略名称
+  // 권한 정책 이름
   name?: string;
-  // 权限策略类型 0: 系统 1: 用户
+  // 권한 정책 유형 0 : 시스템 1 : 사용자
   type?: number;
-  // 引用次数
+  // 인용 횟수
   attachmentCount?: number;
-  // 备注
+  // 비고
   remark?: string;
 }
 

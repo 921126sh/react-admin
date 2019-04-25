@@ -9,7 +9,7 @@ const plugins: IPlugin[] = [
       },
       locale: {
         enable: true,
-        default: 'zh-CN',
+        default: 'ko-KR',
         baseNavigator: true
       },
       dynamicImport: {

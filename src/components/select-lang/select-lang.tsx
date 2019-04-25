@@ -11,9 +11,9 @@ interface IProps {
 }
 
 const locales = {
+  'ko-KR': { label: '한국어', icon: '🇰🇷' },
   'en-US': { label: 'English', icon: '🇬🇧' },
   'zh-CN': { label: '简体中文', icon: '🇨🇳' }
-  
 };
 
 export const SelectLang: React.FC<IProps> = (props) => {
