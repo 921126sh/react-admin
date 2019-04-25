@@ -21,19 +21,14 @@ export interface IMenu {
 export interface IBaseMenuProps extends Required<ConnectProps> {
   className?: string;
   style?: React.CSSProperties;
-  // 접힘/펼치 여부
+  // 접힘/펼침 여부
   collapsed?: boolean;
   flatMenuKeys?: any[];
   isMobile?: boolean;
-  // 菜单数据
   menuData?: IMenu[];
-  // 菜单类型
   mode?: MenuMode;
-  // 菜单主题
   theme?: MenuTheme;
-  // 打开的菜单Key
   openKeys?: string[];
-  // 菜单 展开/关闭 的回调
   onOpenChange?: (openKeys: string[]) => void;
   onCollapse?: (collapsed: boolean) => void;
 }

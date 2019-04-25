@@ -7,7 +7,7 @@ const { companyName } = APP_DEFAULT_CONFIG;
 const Copyright = () => {
   return (
     <div>
-      Copyright <Icon type="copyright" /> 2019{companyName}技术部出品
+      Copyright <Icon type="copyright" /> 2019{companyName} 개발부
     </div>
   )
 };

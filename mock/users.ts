@@ -1,21 +1,34 @@
+/**
+ * 현재 사용자를 동기화한다.
+ * 
+ * @param req 요청
+ * @param res 응답
+ */
 function fetchCurrent(req, res) {
   const { token } = req.headers;
   console.log(token);
   res.send({
     code: 200,
     data: {
-      name: '系统管理员',
+      name: '김성현',
       avatar: 'https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png',
       unreadCount: 11,
-      email: 'wang_xingkang@qq.com'
+      email: 'seonghyun.kim@ikoob.com'
     },
     message: 'success'
   });
 }
 
-// 用户登录
+/**
+ * 로그인을 한다.
+ * 
+ * @param req 요청
+ * @param res 응답
+ */
 function fetchLogin(req, res) {
   const { username, password } = req.body;
+
+  // 관리자라면...
   if (username === 'admin' && password === '123456') {
     res.send({
       code: 200,
@@ -24,9 +37,12 @@ function fetchLogin(req, res) {
         token: 'admin_token'
       }
     });
+
     return;
   }
-  if ( username === 'user'  && password === '123456') {
+
+  // 일반 사용자라면...
+  if (username === 'user'  && password === '123456') {
     res.send({
       code: 200,
       message: 'success',
@@ -34,16 +50,23 @@ function fetchLogin(req, res) {
         token: 'user_token'
       }
     });
+
     return;
   }
-  // 用户名或者密码错误
+
   res.send({
     code: 10001,
-    message: '账号或密码错误',
+    message: '잘못된 계정 또는 비밀번호 입니다.',
     data: {}
   });
 }
 
+/**
+ * 로그아웃 한다.
+ * 
+ * @param req 요청
+ * @param res 응답
+ */
 function fetchLogout(req, res) {
   res.send({
     code: 200,

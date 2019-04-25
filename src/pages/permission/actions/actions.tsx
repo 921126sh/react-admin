@@ -16,26 +16,26 @@ const ActionPage: React.FC<IProps> = (props) => {
 
   const columns = [
     {
-      title: '所属模块',
+      title: 'mould',
       dataIndex: 'mould'
     },
     {
-      title: '操作名称',
+      title: 'type',
       dataIndex: 'type'
     },
     {
-      title: '类型',
+      title: 'type',
       dataIndex: 'type'
     },
     {
-      title: '备注',
+      title: 'remark',
       dataIndex: 'remark'
     },
     {
-      title: '操作',
+      title: 'action',
       key: 'action',
       render: (text, record) => (
-        <Tooltip placement="top" title="删除">
+        <Tooltip placement="top" title="삭제">
           <Button
             type="danger"
             size="small"
@@ -49,16 +49,16 @@ const ActionPage: React.FC<IProps> = (props) => {
   return (
     <React.Fragment>
       <PageHeaderWrapper
-        title="操作管理"
+        title="운영 관리"
         extra={[
           <Button key="1" type="primary" >
-            新建操作
+            새로운 작업
           </Button>
         ]}
       >
         <div className="content">
           <Paragraph>
-            操作是指对具体资源的操作，多数情况下 Action 与系统的 API 一一对应，但也有例外。
+          작업은 특정 리소스에 대한 작업입니다. 대부분의 경우 Action은 시스템의 API에 해당하지만 예외가 있습니다.
           </Paragraph>
         </div>
       </PageHeaderWrapper>

@@ -22,7 +22,7 @@ const { Header } = Layout;
 }))
 class HeaderView extends React.Component<IHeaderViewProps, IState> {
   handleMenuClick = (key) => {
-    // 跳转到个人中心
+    // 개인 센터로 이동
     if (key === 'account-center') {
       router.push('/account/center');
       return;

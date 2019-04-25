@@ -14,7 +14,6 @@ export default {
     BASE_URL: serverConfig[NODE_ENV] || serverConfig.development
   },
   routes,
-  // 请根据项目需要修改
   publicPath: './',
   history: 'hash',
   hash: true,

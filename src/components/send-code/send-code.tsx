@@ -4,22 +4,22 @@ import { NativeButtonProps } from 'antd/es/button/button';
 import { isPromise } from '@/utils/utils';
 
 export interface IProps extends NativeButtonProps {
-  // 倒计时时长（秒）默认60
+  // 카운트 다운 지속 시간 (초) 기본값 60
   second?: number;
-  // 初始化按钮显示文本
+  // 텍스트를 표시하려면 버튼 초기화
   initText?: string;
-  // 运行时显示文本
-  // 自己设置必须包含{%s}
+  // 런타임시 텍스트 표시
+  // 내 설정에 {% s}이 (가) 있어야합니다.
   runText?: string;
-  // 运行结束后显示文本
+  // 실행 종료 후 텍스트 표시
   resetText?: string;
-  // 储存倒计时剩余时间sessionStorage的键值
-  // 设置不为空后，刷新页面倒计时将继续
+  // 카운트 다운 시간 저장 sessionStorage 키 값
+  // 설정이 비어 있지 않으면 새로 고침 페이지 카운트 다운이 계속됩니다
   storageKey?: string;
-  // 倒计时结束执行函数
+  // 카운트 다운 종료 실행 기능
   onEnd?: () => void;
-  // 获取验证码执行函数
-  // 会根据返回结果决定是否执行倒计时
+  // 인증 코드 실행 기능 얻기
+  // 반환 된 결과에 따라 카운트 다운 수행 여부를 결정합니다.
   onCaptcha?: () => boolean | Promise<any>;
 }
 
@@ -59,7 +59,7 @@ export const SendCode: React.FC<IProps> = (props) => {
     }
   }, []);
 
-  // 触发获取验证码
+  // 인증 코드를 가져 오기 위해 트리거
   function handleClick(event) {
     event.preventDefault();
     setLoading(true);
@@ -73,7 +73,7 @@ export const SendCode: React.FC<IProps> = (props) => {
         })
         .catch(() => {
           setLoading(false);
-          console.log('获取验证码失败');
+          console.log('인증 코드를받지 못했습니다.');
         });
       return;
     }
@@ -84,12 +84,11 @@ export const SendCode: React.FC<IProps> = (props) => {
     }
   }
 
-  // 获取格式化的模板文本
+  // 서식있는 텍스트 가져 오기
   function getTemplateText(second: number): string {
     return runText.replace(/\{([^{]*?)%s(.*?)\}/g, second.toString());
   }
 
-  // 开始倒计时
   function startCountdown() {
     setStart(true);
     let second = lastSecond ? lastSecond : runSecond;
@@ -113,18 +112,15 @@ export const SendCode: React.FC<IProps> = (props) => {
     }, 1000)
   }
 
-  // 倒计时结束处理函数
+  // 카운트 다운 종료 처리 기능
   function timeout() {
-    // 设置为运行结束后文本
+    // 실행 종료 후 텍스트로 설정
     setButtonText(resetText);
     setStart(false);
-    // 清除定时器
     timer && clearInterval(timer);
-    // 删除sessionStorage
     if (storageKey) {
       sessionStorage.removeItem(storageKey);
     }
-    // 发出倒计时结束事件
     onEnd && onEnd();
   }
 
@@ -142,7 +138,7 @@ export const SendCode: React.FC<IProps> = (props) => {
 
 SendCode.defaultProps = {
   second: 60,
-  initText: '获取验证码',
-  runText: '{%s}秒后重新获取',
-  resetText: '重新获取验证码'
+  initText: '인증 코드 받기',
+  runText: '{%s}초 후에 다시 시도하십시오',
+  resetText: '인증 코드 다시 받기'
 };

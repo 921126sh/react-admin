@@ -20,14 +20,14 @@ const PoliciesPage: React.FC<IProps> = (props) => {
     router.push('/permission/policies/create');
   };
 
-  // 删除权限策略
+  // 권한정책 삭제
   const handleConfirmRemove = (record) => {
     confirm({
-      title: `确定删除${record.name}策略?`,
-      content: '删除不可恢复',
-      okText: '确认',
+      title: `${record.name}를 삭제 하시겠습니까?`,
+      content: '삭제는 복구 할 수 없습니다.',
+      okText: '확인',
       okType: 'danger',
-      cancelText: '取消',
+      cancelText: '취소',
       onOk() {
         handleRemove(record);
       }
@@ -41,37 +41,37 @@ const PoliciesPage: React.FC<IProps> = (props) => {
   const list = [
     {
       id: '1',
-      name: '胡彦斌',
+      name: '홍길동',
       attachmentCount: 32,
-      remark: '西湖区湖底公园1号'
+      remark: '???'
     },
     {
       id: '2',
-      name: '胡彦祖',
+      name: '이순신',
       attachmentCount: 42,
-      remark: '西湖区湖底公园1号'
+      remark: '????'
     }
   ];
 
   const columns = [
     {
-      title: '权限策略名称',
+      title: 'name',
       dataIndex: 'name'
     },
     {
-      title: '策略类型',
+      title: 'type',
       dataIndex: 'type'
     },
     {
-      title: '引用次数',
+      title: 'attachmentCount',
       dataIndex: 'attachmentCount'
     },
     {
-      title: '备注',
+      title: 'remark',
       dataIndex: 'remark'
     },
     {
-      title: '操作',
+      title: 'action',
       key: 'action',
       render: (text, record) => (
         <Tooltip placement="top" title="删除">
@@ -91,19 +91,19 @@ const PoliciesPage: React.FC<IProps> = (props) => {
   return (
     <React.Fragment>
       <PageHeaderWrapper
-        title="支持两种类型的授权策略：由平台管理的系统访问策略和由客户管理的自定义访问策略。"
+        title="플랫폼에서 관리하는 시스템 액세스 정책과 클라이언트에서 관리하는 사용자 지정 액세스 정책의 두 가지 유형의 인증 정책이 지원됩니다."
         extra={[
           <Button key="1" type="primary" onClick={showCreateView}>
-            新建权限策略
+            신규
           </Button>
         ]}
       >
         <div className="content">
           <Paragraph>
-            - 对于系统访问策略，统一由平台创建，用户只能使用而不能修改，系统访问策略的版本更新由平台维护。
+            - 시스템 액세스 정책, 플랫폼에 의한 통합 작성의 경우 사용자는 수정할 수만 있지만 수정할 수는 없으며 시스템 액세스 정책의 버전 업데이트는 플랫폼에서 유지 관리됩니다.
           </Paragraph>
           <Paragraph>
-            - 对于自定义访问策略，用户可以自主创建、更新和删除，自定义策略的版本更新由客户自己维护。
+            - 사용자 지정 액세스 정책의 경우 사용자가 직접 만들고 업데이트하고 삭제할 수 있습니다. 사용자 지정된 정책의 버전 업데이트는 고객이 자체적으로 관리합니다.
           </Paragraph>
         </div>
       </PageHeaderWrapper>

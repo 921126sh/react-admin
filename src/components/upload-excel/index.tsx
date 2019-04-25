@@ -83,11 +83,11 @@ class UploadExcel extends React.Component<UploadExcelProps, any> {
       showUploadList: false,
       beforeUpload: (file) => {
         if (!this.isExcel(file)) {
-          message.error('只能选择.xlsx, .xls, .csv格式的文件');
+          message.error('.xlsx, .xls, .csv 확장자만 지원합니다.');
           return false;
         }
         if (file.size > 5 * 1024 * 1024) {
-          message.error('文件过大请小于5M');
+          message.error('파일 크기가 너무 크면 5M 미만으로하십시오.');
           return false;
         }
         return true;
@@ -96,7 +96,7 @@ class UploadExcel extends React.Component<UploadExcelProps, any> {
     return (
       <Upload {...options}>
         <Button>
-          <Icon type="upload" /> 点击选择Excel
+          <Icon type="upload" /> Excel을 선택하려면 클릭하십시오.
         </Button>
       </Upload>
     );

@@ -20,7 +20,7 @@ const DrawerWrapper: React.FC<IProps> = (props) => {
     onClose,
     ...restProps
   } = props;
-  // 是否全屏
+  
   const [isFullScreen, setIsFullScreen] = useState<boolean>(false);
   const [drawerWidth, setDrawerWidth] = useState<string | number>(300);
   const [drawerHeight, setDrawerHeight] = useState<string | number>(300);

@@ -5,7 +5,7 @@ import IconFont from '@/components/icon-font';
 import { urlToList } from '@/utils/path-tools';
 import { isUrl } from '@/utils/utils';
 
-// 获取Icon图标
+// 아이콘 얻기
 export const getIcon = (icon?: string | React.ReactNode) => {
   if (typeof icon === 'string') {
     if (isUrl(icon)) {
@@ -19,7 +19,7 @@ export const getIcon = (icon?: string | React.ReactNode) => {
   return icon;
 };
 
-// 递归展平数据
+// 재귀 평평하게하는 데이터
 export const getFlatMenuKeys = (menuData) => {
   let keys = [];
   menuData.forEach(item => {
@@ -31,7 +31,7 @@ export const getFlatMenuKeys = (menuData) => {
   return keys;
 };
 
-// 获取匹配的菜单
+// 일치하는 메뉴 가져 오기
 export const getMenuMatches = (flatMenuKeys, path) =>
   flatMenuKeys.filter(item => {
     if (item) {
@@ -40,7 +40,7 @@ export const getMenuMatches = (flatMenuKeys, path) =>
     return false;
   });
 
-// 获得菜单子节点
+// 메뉴 하위 노드 가져 오기
 export const getDefaultCollapsedSubMenus = props => {
   const {
     location: { pathname },

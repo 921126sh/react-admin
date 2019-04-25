@@ -20,7 +20,7 @@ export function onRouteChange({ location }) {
 
   // 로그인 필요 할 경우...
   // if (!token && isLogin) {
-  //   message.warning('登录已过期，请重新登录！');
+  //   message.warning('로그인이 만료 되었습니다.');
   //   router.push('/user/login');
   //   return;
   // }

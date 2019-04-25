@@ -8,7 +8,7 @@ import { SETTING_DEFAULT_CONFIG } from '@/config';
 
 const { menu } = SETTING_DEFAULT_CONFIG;
 
-// 将路由数据转换为菜单数据
+// 라우팅 데이터를 메뉴 데이터로 변환
 function formatter(
   data: IRoute[],
   parentAuthority?: string[] | string,
@@ -38,7 +38,7 @@ function formatter(
     });
 }
 
-// 获取面包屑映射
+// 이동 경로 매핑 가져 오기
 const getBreadcrumbNameMap = (menuData: IMenu[]) => {
   const routerMap: { [key: string]: IMenu } = {};
   const flattenMenuData: (data: IMenu[]) => void = data => {
@@ -57,7 +57,6 @@ const getBreadcrumbNameMap = (menuData: IMenu[]) => {
 const memoizeOneFormatter = memoizeOne(formatter, isEqual);
 const memoizeOneGetBreadcrumbNameMap = memoizeOne(getBreadcrumbNameMap, isEqual);
 
-// 过滤菜单数据
 const filterMenuData = (menuData: IMenu[] = []): IMenu[] => {
   return menuData
     .filter(item => item.name && !item.hideInMenu)

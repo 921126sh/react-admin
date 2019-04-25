@@ -71,11 +71,11 @@ const BasicLayout: React.FC<IProps> = (props) => {
   // constructor
   useState(() => {
     const tabList = store.get(tabListKey) || [];
-    // 获取当前登录用户信息
+    // 현재 로그인 사용자 정보 얻기
     dispatch!({
       type: 'user/fetchCurrent'
     });
-    // 获取菜单数据
+    // 메뉴 데이터 가져 오기
     dispatch!({
       type: 'menu/getMenuData',
       payload: {
@@ -83,7 +83,7 @@ const BasicLayout: React.FC<IProps> = (props) => {
         authority
       },
     });
-    // 保存Tab数据到全局状态
+    // 탭 데이터를 전역 상태로 저장
     dispatch!({
       type: 'global/fetchAddTab',
       payload: {
@@ -153,7 +153,6 @@ const BasicLayout: React.FC<IProps> = (props) => {
 
   const layout = (
     <Layout className={prefixCls}>
-      {/** 左侧菜单 */}
       <SideMenu
         logo={logo}
         theme={theme}
